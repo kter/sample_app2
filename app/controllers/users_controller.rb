@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)    # 実装は終わっていないことに注意!
     if @user.save
-      # Handle a successful save.
+      redirect_to @user
     else
       render 'new'
     end
