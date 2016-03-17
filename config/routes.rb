@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'signup' => 'users#new'
 
   get 'help' => 'static_pages#help'
@@ -8,6 +12,10 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   
   resources :users
+
+  resources :account_activations, only: [:edit]
+
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   get    'login'   => 'sessions#new'
 
